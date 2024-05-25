@@ -1,0 +1,16 @@
+services:
+  db:
+    build: ./Db
+    ports:
+      - "1433:1433"
+    networks:
+      my-net:
+       ipv4_address: 192.168.100.99
+
+networks:
+  my-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24
+          gateway: 192.168.100.1
